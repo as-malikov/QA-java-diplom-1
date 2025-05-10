@@ -83,7 +83,7 @@ public class BurgerTest {
         Mockito.when(bun.getName()).thenReturn(FLIRE_BUN);
 
         Mockito.when(ingredientFilling.getType()).thenReturn(IngredientType.FILLING);
-        Mockito.when(ingredientFilling.getName()).thenReturn( BEEF_METEORITE_CHOPPED);
+        Mockito.when(ingredientFilling.getName()).thenReturn(BEEF_METEORITE_CHOPPED);
 
         Mockito.when(ingredientSauce.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredientSauce.getName()).thenReturn(SAUCE_SPICY_X);
