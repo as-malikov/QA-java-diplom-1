@@ -1,13 +1,9 @@
 import org.junit.*;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 
 import static org.junit.Assert.assertEquals;
 
-//@RunWith(MockitoJUnitRunner.class)
 public class BunTest {
     @Mock
     private static String name;
