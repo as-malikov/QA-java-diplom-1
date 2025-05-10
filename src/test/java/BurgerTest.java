@@ -80,25 +80,25 @@ public class BurgerTest {
     @Test
     public void getReceiptWithIngredientsReturnReceiptSuccess() {
         burger.setBuns(bun);
-        Mockito.when(bun.getName()).thenReturn("Флюоресцентная булка");
+        Mockito.when(bun.getName()).thenReturn(FLIRE_BUN);
 
         Mockito.when(ingredientFilling.getType()).thenReturn(IngredientType.FILLING);
-        Mockito.when(ingredientFilling.getName()).thenReturn("Говяжий метеорит (отбивная)");
+        Mockito.when(ingredientFilling.getName()).thenReturn( BEEF_METEORITE_CHOPPED);
 
         Mockito.when(ingredientSauce.getType()).thenReturn(IngredientType.SAUCE);
-        Mockito.when(ingredientSauce.getName()).thenReturn("Соус Spicy-X");
+        Mockito.when(ingredientSauce.getName()).thenReturn(SAUCE_SPICY_X);
 
         burger.addIngredient(ingredientFilling);
         burger.addIngredient(ingredientSauce);
 
         Mockito.when(burger.getPrice()).thenReturn(EXPECTED_PRICE_260);
 
-        StringBuilder expectedReceipt = new StringBuilder(String.format("(==== %s ====)%n", FLIRE_BUN));
-        expectedReceipt.append(String.format("= %s %s =%n", "filling", BEEF_METEORITE_CHOPPED));
-        expectedReceipt.append(String.format("= %s %s =%n", "sauce", SAUCE_SPICY_X));
-        expectedReceipt.append(String.format("(==== %s ====)%n", FLIRE_BUN));
-        expectedReceipt.append(String.format("%nPrice: %f%n", EXPECTED_PRICE_260));
+        String expectedReceipt = String.format("(==== %s ====)%n", FLIRE_BUN) +
+                String.format("= %s %s =%n", "filling", BEEF_METEORITE_CHOPPED) +
+                String.format("= %s %s =%n", "sauce", SAUCE_SPICY_X) +
+                String.format("(==== %s ====)%n", FLIRE_BUN) +
+                String.format("%nPrice: %f%n", EXPECTED_PRICE_260);
 
-        assertEquals(expectedReceipt.toString(), burger.getReceipt());
+        assertEquals(expectedReceipt, burger.getReceipt());
     }
 }
